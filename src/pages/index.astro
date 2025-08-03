@@ -1,25 +1,35 @@
 ---
-import '../styles/global.css';
-// Component Imports
-import Button from '../components/Button.astro';
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+import { CalculatorIcon, ChartNoAxesCombined } from "lucide-react";
+import "../styles/global.css";
+import { Calculator } from "@/components/Calculator";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Etsy Calculator</title>
+  </head>
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
+  <body class="bg-background dark">
+    <div class="grid place-items-center min-h-screen content-center px-4 py-16">
+      <h1
+        class="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance mb-4 flex gap-2 items-center justify-center"
+      >
+        <span><ChartNoAxesCombined size={32}/></span>Etsy Shipping Calculator
+      </h1>
+      <p class="leading-7 mb-6 text-center">
+        Calculate the exact shipping cost to maximize your Etsy product profits.
+      </p>
+
+      <Calculator client:load />
+      
+      <footer class="text-center text-sm text-muted-foreground space-y-1 mt-6">
+        <p>Made with ❤️ by jabdev</p>
+        <p>Powered by Astro and React</p>
+      </footer>
+    </div>
+  </body>
 </html>
